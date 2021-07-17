@@ -5,6 +5,8 @@ COPY . .
 
 COPY requirements.txt /requirements.txt
 
+ADD credentials.json /credentials.json
+
 RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt

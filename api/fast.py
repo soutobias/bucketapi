@@ -23,9 +23,7 @@ def index():
 def databucket(filename, extension='csv', nrows=None):
 
     filename = f"{filename}.{extension}"
-    print('XXXXXXXXXXXX')
-    print(filename)
-    print('XXXXXXXXXXXX')
+
 
     if nrows:
         nrows = int(nrows)
@@ -35,7 +33,9 @@ def databucket(filename, extension='csv', nrows=None):
     return data
 
 @app.post("/data")
-def data(filename, data):
+def data(filename, extension='csv', data):
+
+    filename = f"{filename}.{extension}"
 
     res = Getdata().post(filename=filename, data=data)
 
